@@ -1,6 +1,7 @@
 package leetCode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -8,51 +9,30 @@ public class MinimizeMaximumPairSuminArray {
 
 	public static void main(String[] args) {
 
-		int[] nums = {3,2,4,1,1,5,1,3,5,1};
+		int[] nums = {4,1,5,1,2,5,1,5,5,4};
 		
-		List<Integer> maxList = new ArrayList<>();
+//		List<Integer> maxList = new ArrayList<>();
 		
-		for(int i =0;i<nums.length;i++) {
-			for(int j=i+1;j<nums.length;j++) {
-				
-				if(nums[i] == nums[j]) {
-					maxList.add(nums[i]*2);
-					nums[i] = 0;
-					nums[j] = 0;
-				}
-			}
-		}
+		Arrays.sort(nums);
 		
-		for(int i =0;i<nums.length-1;i++) {
-			for(int j=i+1;j<nums.length;j++) {
-				
-				if(nums[i] !=0) {
-					int a = nums[i];System.out.println("a"+a);
-					if(nums[j] !=0) {
-						maxList.add(a+nums[j]);
-						i=i+2;
-						j=j+1;
-						System.out.println("j"+j);
-						System.out.println("이거"+nums[j]);
-					}else if(nums[nums.length-1] !=0){
-						j++;
-						maxList.add(a+nums[j]);
-					}
-					else {}
-					System.out.println(maxList);
-				}else {
-					if(i+1<nums.length) {
-						i=i+1;
-					}
-				}
-			}
+		int sum =0;
+		int max = 0;
+		
+		for(int i =0;i<(nums.length)/2;i++) {
 			
+			sum = nums[i]+nums[nums.length-1-i];
+			System.out.println(sum);
+			if(max<sum) {
+				max = sum;
+			}
+//			maxList.add(sum);
 		}
-		for(int i =0;i<nums.length;i++) {
-			System.out.print(nums[i]+" ,");
-		}
-		System.out.println(maxList);
-		System.out.println(Collections.max(maxList));
+		System.out.println("max"+max);
+		
+//		System.out.println(maxList);
+//		System.out.println(Collections.max(maxList));
+		
+		// Collection 쓰기보다 대소비교가 더 빠르다!!
 		
 	}
 
