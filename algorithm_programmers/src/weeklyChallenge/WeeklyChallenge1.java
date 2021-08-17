@@ -1,4 +1,4 @@
-package programmers;
+package weeklyChallenge;
 
 public class WeeklyChallenge1 {
 
