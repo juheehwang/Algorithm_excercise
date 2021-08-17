@@ -8,7 +8,6 @@ public class WeeklyChallenge1 {
 		WeeklyChallenge1 sol = new WeeklyChallenge1();
 		
 		System.out.println(sol.solution(20, 30, 3));
-		
 
 	}
     public long solution(int price, int money, int count) {
